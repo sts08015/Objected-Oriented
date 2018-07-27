@@ -39,6 +39,4 @@ public class survivalGame {
 			System.out.println(i);
 		}*/
 	}
-	
-
 }
