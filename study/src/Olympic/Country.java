@@ -21,6 +21,7 @@ public class Country implements Comparable<Country>{
 		return 3*gold + 2*silver + bronze;
 	}
 	
+	@Override
 	public int compareTo(Country country) {
 		if(this.gold > country.gold) return -1;
 		else if(this.gold == country.gold) {

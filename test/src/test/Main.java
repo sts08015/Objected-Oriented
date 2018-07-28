@@ -3,18 +3,20 @@ package test;
 import java.util.*;
 
 public class Main {
-	
+	static Scanner scn = new Scanner(System.in);
+
 	public static void main(String[] args) {
-		Scanner scn = new Scanner(System.in);
 		int n = scn.nextInt();
-		int[] num = new int[n];
-		int [] chk = new int[24];
-		for(int i=0;i<n;i++) {
-			num[i] = scn.nextInt();
-			chk[num[i]]++;
+		List<Integer> arr = new ArrayList<Integer>();
+		while (n-- > 0) {
+			int k = scn.nextInt();
+			arr.add(k);
+			// System.out.println(k);
 		}
-		for(int i=1;i<24;i++) {
-			System.out.print(chk[i]+" ");
-		}
+		// for(int i: arr) System.out.println(i);
+		Collections.sort(arr);
+		// System.out.println(arr.size());
+		for (int i = 0; i < arr.size(); i++)
+			System.out.printf("%d ", arr.get(i));
 	}
 }
