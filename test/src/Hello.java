@@ -4,5 +4,6 @@ public class Hello{
 		String a = "hello";
 		String b = "abc";
 		int x = a.compareTo(b);
+		System.out.println(x);
 	}
 }
