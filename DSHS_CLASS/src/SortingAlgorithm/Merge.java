@@ -17,7 +17,7 @@ public class Merge {
 	public void divide(int[] a,int[] b,int low,int high) {
 		// if(high < low + buff) insertionsort  return;// 성능 향상 1
 		if(high<=low) return;
-		int mid = low + (high-low)/2;
+		int mid = (high+low)/2;
 		divide(a,b,low,mid);
 		divide(a,b,mid+1,high);
 		// if(a[mid] < a[mid+1]) return;  // 성능향상 2
@@ -30,7 +30,7 @@ public class Merge {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {4,1,5,7,9,3,8,2};
+		int[] arr = {55,34,1,35,999,1};
 		
 		Merge m = new Merge();
 		

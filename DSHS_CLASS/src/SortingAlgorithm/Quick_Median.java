@@ -23,12 +23,13 @@ public class Quick_Median {
 			while(a[left]<=a[mid] && left<right) left++;
 			while(a[right]>a[mid] && left<right) right--;
 			if(left>=right) break;
+			swap(a,left,right);
 		}
 		swap(a,mid,right);
 		return right;
 	}
 	public static void main(String[] args) {
-		int[] arr = {4,5,2,1,0,9,8,7,3,6};
+		int[] arr = {4,-1,2,1,0,9,8,7,3,6};
 		Quick q = new Quick();
 		q.sort(arr);
 		for(int i : arr) {

@@ -18,7 +18,7 @@ public class Heap {
 		
 	}
 	public void downheap(int[] a,int p,int heapsize) {
-		while(2*p<=heapsize) {
+		while(2*p<=heapsize) { // 자식 노드가 있으면 
 			int s = 2*p;
 			if(s<heapsize && a[s] < a[s+1]) s++;
 			if(a[p] > a[s]) break;

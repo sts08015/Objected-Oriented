@@ -4,19 +4,30 @@ import java.util.*;
 
 public class Main {
 	static Scanner scn = new Scanner(System.in);
-
+	public void swap(int[] a,int i,int j) {
+		int tmp = a[i];
+		a[i] = a[j];
+		a[j] = tmp;
+	}
+	public void sort(int[] a) {
+		int j = 
+	}
+	public int partition(int[] a,int begin,int end) {
+		
+	}
 	public static void main(String[] args) {
-		int n = scn.nextInt();
-		List<Integer> arr = new ArrayList<Integer>();
-		while (n-- > 0) {
-			int k = scn.nextInt();
-			arr.add(k);
-			// System.out.println(k);
+		int a = scn.nextInt();
+		int[] arr = new int[a];
+		for (int i = 0; i < a; i++) {
+			int n = scn.nextInt();
+			arr[i] = n;
 		}
-		// for(int i: arr) System.out.println(i);
-		Collections.sort(arr);
-		// System.out.println(arr.size());
-		for (int i = 0; i < arr.size(); i++)
-			System.out.printf("%d ", arr.get(i));
+		Main m = new Main();
+		//arr[0] = -111111;
+		m.sort(arr);
+
+		for (int i=0;i<arr.length;i++) {
+			System.out.printf("%d ",arr[i]);
+		}
 	}
 }
