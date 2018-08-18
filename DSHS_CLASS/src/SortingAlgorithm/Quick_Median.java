@@ -13,7 +13,7 @@ public class Quick_Median {
 		if(end<=begin) return;
 		int j = partition(a,begin,end);
 		quick(a,begin,j-1);
-		quick(a,end,j+1);
+		quick(a,j+1,end);
 	}
 	public int partition(int[] a,int begin,int end) {
 		int mid = (end+begin)/2;
@@ -29,7 +29,7 @@ public class Quick_Median {
 		return right;
 	}
 	public static void main(String[] args) {
-		int[] arr = {4,-1,2,1,0,9,8,7,3,6};
+		int[] arr = {1,2,3,4,5};
 		Quick q = new Quick();
 		q.sort(arr);
 		for(int i : arr) {

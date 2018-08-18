@@ -11,7 +11,7 @@ public class Merge {
 			else if(a[i] < a[j]) b[k] = a[i++];
 			else b[k] = a[j++];
 		}
-		for(int k=low;k<=high;k++) a[k] = b[k];
+		for(int k=low;k<=high;k++) a[k] = b[k]; // ÁÖÀÇ !
 	}
 	
 	public void divide(int[] a,int[] b,int low,int high) {

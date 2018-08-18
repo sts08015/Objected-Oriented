@@ -19,17 +19,16 @@ public class Quick {
 		int i = pivot +1;
 		int j = high;
 		int p  = a[pivot];
-		while(true) {
-			while(i<=high && p>=a[i]) i++;
+		while(i<=j) {
+			while(i<=high && p>=a[i]) i++;  // while Áß¿ä !!
 			while(j >= pivot && p<a[j]) j--;
-			if(i>=j) break;
-			swap(a,i,j);
+			if(i<=j) swap(a,i,j);
 		}
 		swap(a,pivot,j);
 		return j;
 	}
 	public static void main(String[] args) {
-		int[] arr = {-1,4,5,2,0,1,9,8,7,3,6};
+		int[] arr = {17556 ,41199, 6029, 6873, 13469, 42633, 68088 ,8999};
 		Quick q = new Quick();
 		q.sort(arr);
 		for(int i : arr) {
