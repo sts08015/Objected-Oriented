@@ -19,11 +19,11 @@ public class Quick_Median {
 		int mid = (end+begin)/2;
 		int left = begin;
 		int right = end;
-		while(true) {
+		while(left<right) {
 			while(a[left]<=a[mid] && left<right) left++;
 			while(a[right]>a[mid] && left<right) right--;
-			if(left>=right) break;
-			swap(a,left,right);
+			//if(left>=right) break;
+			if(left<right)swap(a,left,right);
 		}
 		swap(a,mid,right);
 		return right;

@@ -19,10 +19,10 @@ public class Quick {
 		int i = pivot +1;
 		int j = high;
 		int p  = a[pivot];
-		while(i<=j) {
+		while(i<j) {
 			while(i<=high && p>=a[i]) i++;  // while Áß¿ä !!
 			while(j >= pivot && p<a[j]) j--;
-			if(i<=j) swap(a,i,j);
+			if(i<j) swap(a,i,j);
 		}
 		swap(a,pivot,j);
 		return j;
