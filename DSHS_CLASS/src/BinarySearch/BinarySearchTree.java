@@ -10,8 +10,9 @@ class Node {
 		this.right = right;
 		this.key = key;
 	}
+
 	public Node() {
-		
+
 	}
 }
 
@@ -60,49 +61,27 @@ public class BinarySearchTree {
 		inorder(root.right);
 	}
 
-	static void deleteBST(Node root,Node p, int key, boolean chk) {
-		if (chk == false) return;
-		if(root.key > key) deleteBST(root.left,root,key,chk);
-		if(root.key < key) deleteBST(root.right,root,key,chk);
-		if(root.left == null && root.right == null)
-		{
-			chk = false;
-			root = null;
-		}
-		else if(root.left == null && root.right != null)
-		{
-			chk = false;
-			p = root;
-		}
-		else if(root.left != null && root.right == null)
-		{
-			chk = false;
-			p = root;
-		}
-		else { // 왼쪽에서 가장 큰거 or 오른쪽에서 가장 작은 거 
-			Node tmp = new Node();
-			tmp = root.left;
-			root = root.right;
-			root.left = tmp;			
-		}
-	}
+	static void deleteBST(Node root, Node p, int key, boolean chk) {
 		
-
+	}
+//	Node find(int key) {
+//		
+//	}
 	public static void main(String[] args) {
 		Node root = new Node(10, null, null);
 		insertBST(root, 8);
-		insertBST(root, 6);
-		insertBST(root, 19);
-		insertBST(root, 18);
-		insertBST(root, 9);
-		insertBST(root, 2);
+		// insertBST(root, 6);
+		// insertBST(root, 19);
+		// insertBST(root, 18);
+		// insertBST(root, 9);
+		// insertBST(root, 2);
 		inorder(root);
 
-		int key = 2; // 찾을 키 값
+		int key = 8; // 찾을 키 값
 		bsTree(root, key); // 찾았는지 확인
-		
+
 		key = 8;
-		deleteBST(root,null, key, true);
+		deleteBST(root, null, key, true);
 		System.out.println();
 		inorder(root);
 	}
