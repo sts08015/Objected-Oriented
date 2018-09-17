@@ -4,9 +4,10 @@ public class Car {
 
 	private int speed;
 	
-	public int getSpeed() {
+	public int getSpeed(int a, String b) {
 		return speed;
 	}
+	
 
 	public void setSpeed(int speed) {
 		if(speed<0) this.speed = 0;
