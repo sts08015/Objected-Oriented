@@ -135,4 +135,10 @@ public class BST {
 		}
 		return successor;
 	}
+	public void display(Node root) {
+		if(root == null) return;
+		display(root.getLeft());
+		System.out.print(" " + root.getData());
+		display(root.getRight());
+	}
 }

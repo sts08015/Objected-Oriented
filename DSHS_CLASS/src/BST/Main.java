@@ -4,7 +4,7 @@ import BinarySearchTree.*;
 
 public class Main {
 	public static void main(String[] args) {
-		BinarySearchTree b = new BinarySearchTree();
+		BST b = new BST();
 		//트리에 노드를 삽입
 		b.insert(3);b.insert(8);
 		b.insert(1);b.insert(4);b.insert(6);b.insert(2);b.insert(10);b.insert(9);
