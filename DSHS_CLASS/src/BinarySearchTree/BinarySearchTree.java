@@ -24,7 +24,7 @@ public class BinarySearchTree {
 	}
 	//삭제 연산
 	public boolean delete(int id){
-		Node parent = root;
+		Node parent = null;
 		Node current = root;
 		boolean isLeftChild = false;
 		while(current.getData()!=id){

@@ -1,4 +1,6 @@
-package BinarySearchTree;
+package BST;
+
+import BinarySearchTree.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -20,3 +22,4 @@ public class Main {
 		b.display(b.root);
 }
 }
+
