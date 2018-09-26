@@ -2,10 +2,7 @@ package Chapter_6;
 
 public class Singleton {
 	private Singleton() {}
-	private static Singleton singleton;
-	static {
-		singleton = new Singleton();
-	}
+	private static Singleton singleton = new Singleton();
 	static Singleton getInstance() {
 		return singleton;
 	}
