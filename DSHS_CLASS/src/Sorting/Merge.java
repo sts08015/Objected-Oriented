@@ -12,7 +12,7 @@ public class Merge {
 		divide(a,b,mid+1,high);
 		merge(a,b,low,mid,high);
 	}
-	void merge(int[] a,int [] b,int low,int mid,int high) {
+	void merge(int[] a,int[] b,int low,int mid,int high) {
 		int i = low;
 		int j = mid+1;
 		for(int k = low;k<=high;k++) {

@@ -1,106 +1,79 @@
 package bst_wjdckdgns;
 
-class Node {
-    int key;
-    Node left;
-    Node right;
-    Node (int k, Node l, Node r) {
-        key = k;
-        left = l;
-        right = r;
-    }
+class Node{
+	Node left;
+	Node right;
+	int key;
+	Node(int key,Node left,Node right){
+		this.key = key;
+		this.left = left;
+		this.right = right;
+	}
 }
-
-class BST {
-    Node root;
-
-    BST(Node r) {
-        root = r;
-    }
-
-    Node searchBST(Node root,int key) {
-    	if(root == null) return null;
-    	if(root.key == key) return root;
-    	else if(root.key < key) return searchBST(root.right,key);
-    	else return searchBST(root.left,key);
-    }
-
-    void insertBST(Node r,int key) {
-    	Node p = null;
-    	Node t = r;
-    	Node newNode = new Node(key,null,null);
-    	
-    	while(t!=null){
-    		p = t;
-    		if(t.key < key) t = t.right;
-    		else t = t.left;
-    	}
-    	if(p == null) root = newNode;
-    	else if(p.key > key) p.left = newNode;
-    	else p.right = newNode;
-    }
-    boolean deleteNode(int key) {
-    	Node current = root;
-    	Node parent = null;
-    	boolean isLeftChild = false;
-    	if(current == null) return false;
-    	while(current.key != key) {
-    		parent = current;
-    		if(current.key<key) {
-    			current = current.left;
-    			isLeftChild = true;
-    		}
-    		else {
-    			 current = current.right;
-    			 isLeftChild = false;
-    		}
-    	}
-    	if(current.left == null && current.right == null) {
-    		if(current == root) root = null;
-    		else if(isLeftChild) parent.left = current;
-    		else if(!isLeftChild) parent.right = current;
-    	}
-    	else if(current.left == null) {
-    		if(current == root) root = current.right;
-    		else if(isLeftChild) parent.left = current.right;
-    		else if(!isLeftChild) parent.right = current.right;
-    	}
-    	else if(current.right == null) {
-    		if(current == root) root = current.left;
-    		else if(isLeftChild) parent.left = current.left;
-    		else if(!isLeftChild) parent.right = current.left;
-    	}
-    	else if(current.right != null && current.left != null) {
-    		Node successor = getSuccessor(current);
-    		if(current == root) root = successor;
-    		else if(isLeftChild) parent.left = successor;
-    		else if(!isLeftChild) parent.right = successor;
-    		successor.left = current.left;
-    	}
-    	return true;
-    }
-    
-    Node getSuccessor(Node deleteNode) {
-    	Node current = deleteNode.right;
-    	Node successor = current;
-    	Node successorparent = deleteNode;
-    	while(current != null) {
-    		successorparent = successor;
-    		successor = current;
-    		current = current.left;
-    	}
-    	if(successor!=deleteNode.right) {
-    		successorparent.left = successor.right;
-    		successor.right = deleteNode.right;
-    	}
-    	return successor;
-    }
-    void display(Node root) {
-    	if(root == null) return;
-    	display(root.left);
-    	System.out.println(root.key);
-    	display(root.right);
-    }
+class BST{
+	Node root;
+	BST(Node root){
+		this.root = root;
+	}
+	void insertBST(Node root,int data) {
+		Node parent = null;
+		Node current = root;
+		Node insertNode = new Node(data,null,null);
+		while(current!=null) {
+			parent = current;
+			if(current.key > data) current = current.left;
+			else current = current.right;
+		}
+		if(current == root) root = insertNode;
+		else if(parent.key > data) parent.left = insertNode;
+		else parent.right = insertNode;
+	}
+	Node searchBST(Node root,int data) {
+		if(root == null) return null;
+		if(root.key == data) return root;
+		else if(root.key > data) return searchBST(root.left,data);
+		else return searchBST(root.right,data);
+	}
+	boolean deleteBST(int data) {
+		Node current = root;
+		Node parent = null;
+		boolean isLeftChild = false;
+		if(current == null) return false;
+		while(current.key != data) {
+			parent = current;
+			if(current.key>data) {
+				current = current.left;
+				isLeftChild = true;
+			}
+			else {
+				current = current.right;
+				isLeftChild = false;
+			}
+		}
+		Node successor = getsuccessor(current);
+		if(current == root) root = successor;
+		else if(isLeftChild) parent.left = successor;
+		else if(!isLeftChild) parent.right = successor;
+		successor.left = current.left;
+		return true;
+	}
+	Node getsuccessor(Node deleteNode) {
+		Node current = deleteNode.right;
+		Node successor = current;
+		Node successorparent = deleteNode;
+		
+		while(current!=null) {
+			successorparent = successor;
+			successor = current;
+			current = current.left;
+		}
+		if(deleteNode.right != current) {
+			successorparent.left = successor.right;
+			successor.right = deleteNode.right;
+		}
+		
+		return successor;
+	}
 }
 
 public class Main {
@@ -108,11 +81,11 @@ public class Main {
 		        int[] x = {8, 3, 10, 1, 6, 14, 4, 7, 13};
 
 		        BST bst = new BST(null);
-
+		        
 		        for (int i = 0; i<x.length; i++) {
 		            bst.insertBST(bst.root, x[i]);
 		        }
 		        System.out.println((bst.searchBST(bst.root, 14)).key);
-		        bst.deleteNode(10);
+		        bst.deleteBST(10);
 	}
 }
