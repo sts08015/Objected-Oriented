@@ -85,7 +85,7 @@ public class Main {
 		        for (int i = 0; i<x.length; i++) {
 		            bst.insertBST(bst.root, x[i]);
 		        }
-		        System.out.println((bst.searchBST(bst.root, 14)).key);
+		        //System.out.println((bst.searchBST(bst.root, 14)).key);
 		        bst.deleteBST(10);
 	}
 }

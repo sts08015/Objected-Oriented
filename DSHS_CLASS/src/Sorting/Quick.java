@@ -1,4 +1,4 @@
-package SortingAlgorithm;
+package Sorting;
 
 public class Quick {
 	public void swap(int[] a,int i,int j) {
@@ -7,22 +7,22 @@ public class Quick {
 		a[j] = tmp;
 	}
 	public void sort(int[] a) {
-		quick(a,0,a.length-1);
+		sort(a,0,a.length-1);
 	}
-	public void quick(int[] a,int low,int high) {
-		if(high <= low) return;
+	public void sort(int[] a,int low,int high) {
+		if(low>=high) return;
 		int j = partition(a,low,high);
-		quick(a,low,j-1);
-		quick(a,j+1,high);
+		sort(a,low,j-1);
+		sort(a,j+1,high);
 	}
 	public int partition(int[] a,int pivot,int high) {
-		int i = pivot +1;
+		int p = a[pivot];
+		int i = pivot+1;
 		int j = high;
-		int p  = a[pivot];
 		while(true) {
-			while(i<=high && p>=a[i]) i++;  // while Áß¿ä !!
-			while(j >= pivot && p<a[j]) j--;
-			if(i>=j) break; 
+			while(i<=high && a[p] >= a[i]) i++;
+			while(j>=pivot && a[p] < a[j]) j--;
+			if(i>=j) break;
 			swap(a,i,j);
 		}
 		swap(a,pivot,j);
