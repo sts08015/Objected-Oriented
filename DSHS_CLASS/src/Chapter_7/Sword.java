@@ -9,7 +9,7 @@ public class Sword {
 		return power;
 	}
 	public void setPower() {
-		this.power = 200;
+		this.power = 0;
 		System.out.println("보통 칼이 장착되었습니다.");
 	}
 	
