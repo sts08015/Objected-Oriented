@@ -30,7 +30,7 @@ public class Merge {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {55,34,1,35,999,1};
+		int[] arr = {2,155,34,1,35,999,1};
 		
 		Merge m = new Merge();
 		

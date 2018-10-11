@@ -14,11 +14,9 @@ public class Insertion {
 	}
 	void insertion(int[] a) {
 		int N = a.length;
-		for(int i=1;i<N;i++) {
-			for(int j=i;j>0;j--) {
-				if(a[j] < a[j-1]) {
-					swap(a,j,j-1);
-				}
+		for(int i = 1;i<N;i++) {
+			for(int j = i;j>0;j--) {
+				if(a[j]<a[j-1]) swap(a,j,j-1);
 				else break;
 			}
 		}

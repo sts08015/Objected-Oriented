@@ -3,8 +3,8 @@ package SortingAlgorithm;
 public class LSD {
 	public static void sort(int[] a) {
 		int N = a.length;
-		int R = 10;
-		int[] t = new int[N];
+		int R = 10; 
+		int[] t = new int[N];// 보조배열
 		for (int k = 10; k <= 1000; k *= 10) {
 			int[] startIndex = new int[R + 1];
 			for (int i = 0; i < N; i++)

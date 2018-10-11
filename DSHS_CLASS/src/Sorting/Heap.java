@@ -6,20 +6,22 @@ public class Heap {
 		a[i] = a[j];
 		a[j] = tmp;
 	}
-	void sort(int[] a) {
-		int N = a.length-1;
-		for(int i = N/2;i>0;i--) downheap(a,i,N);
+	void sort(int[] arr) {
+		int N = arr.length-1;
+		for(int i = N/2;i>0;i--) {
+			downheap(arr,i,N);
+		}
 		while(N>1) {
-			swap(a,1,N--);
-			downheap(a,1,N);
+			swap(arr,1,N--);
+			downheap(arr,1,N);
 		}
 	}
-	void downheap(int[] a,int p,int heapsize) {
-		while(2*p <= heapsize) {
+	void downheap(int[] arr,int p,int heapsize) {
+		while(2*p<=heapsize) {
 			int s = 2*p;
-			if(a[s] < a[p]) break;
-			if(s<heapsize && a[s]<a[s+1]) s++;
-			swap(a,p,s);
+			if(arr[p] >arr[s]) break;
+			if(s<heapsize && arr[s] < arr[s+1]) s++;
+			swap(arr,p,s);
 			p = s;
 		}
 	}

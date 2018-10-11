@@ -2,12 +2,12 @@ package Sorting;
 
 public class Shell {
 	void shellSort(int[] a) {
-		int h = 3;
 		int N = a.length;
+		int h = N/2;
 		while(h>0) {
-			for(int i=h;i<N;i++) {
-				for(int j=i;j>0;j-=h) {
-					if(a[j] < a[j-h]) swap(a,j,j-h);
+			for(int i = h;i<a.length;i+=h) {
+				for(int j = i;j>0;j-=h) {
+					if(a[j]<a[j-h]) swap(a,j,j-h);
 					else break;
 				}
 			}

@@ -13,12 +13,12 @@ public class Selection {
 		a[j] = tmp;
 	}
 	void selectionSort(int[] a) {
-		for(int i=0;i<a.length;i++) {
+		for(int i = 0;i<a.length;i++) {
 			int min = i;
-			for(int j=i;j<a.length;j++) {
-				if(a[min] > a[j]) min = j;
+			for(int j = i;j<a.length;j++) {
+				if(a[min]>a[j]) min = j;
 			}
-			swap(a,i,min);
+			swap(a,min,i);
 		}
 	}
 	
