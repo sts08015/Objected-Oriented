@@ -16,20 +16,21 @@ public class Quick {
 		sort(a,j+1,high);
 	}
 	public int partition(int[] a,int pivot,int high) {
-		int p = a[pivot];
-		int i = pivot+1;
+		int i = pivot +1;
 		int j = high;
 		while(true) {
-			while(i<=high && a[p] >= a[i]) i++;
-			while(j>=pivot && a[p] < a[j]) j--;
+			while(i<=high && a[pivot] > a[i]) i++;
+			while(j>=pivot && a[pivot] < a[j]) j--;
 			if(i>=j) break;
 			swap(a,i,j);
+			//j--;
+			//i++;
 		}
-		swap(a,pivot,j);
+		swap(a,j,pivot);
 		return j;
 	}
 	public static void main(String[] args) {
-		int[] arr = {17556 ,41199, 6029, 6873, 13469, 42633, 68088 ,8999};
+		int[] arr = {1,2,3,129,4,5,0,-1};
 		Quick q = new Quick();
 		q.sort(arr);
 		for(int i : arr) {

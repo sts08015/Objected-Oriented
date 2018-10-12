@@ -16,62 +16,102 @@ class BST{
 		this.root = root;
 	}
 	void insertBST(Node root,int data) {
-		Node parent = null;
 		Node current = root;
+		Node parent = null;
 		Node insertNode = new Node(data,null,null);
 		while(current!=null) {
 			parent = current;
-			if(current.key > data) current = current.left;
-			else current = current.right;
+			if(current.key <data) current = current.right;
+			else if(current.key >data) current = current.left;
 		}
 		if(current == root) root = insertNode;
 		else if(parent.key > data) parent.left = insertNode;
 		else parent.right = insertNode;
 	}
-	Node searchBST(Node root,int data) {
+	Node searchBST(Node root,int key) {
 		if(root == null) return null;
-		if(root.key == data) return root;
-		else if(root.key > data) return searchBST(root.left,data);
-		else return searchBST(root.right,data);
+		if(root.key > key) return searchBST(root.right,key);
+		else if(root.key < key) return searchBST(root.left,key);
+		else return root;
 	}
-	boolean deleteBST(int data) {
+	void deleteBST(int data) {
 		Node current = root;
-		Node parent = null;
 		boolean isLeftChild = false;
-		if(current == null) return false;
+		Node parent = null;
+		if(current == null) return;
 		while(current.key != data) {
 			parent = current;
 			if(current.key>data) {
-				current = current.left;
-				isLeftChild = true;
-			}
-			else {
 				current = current.right;
 				isLeftChild = false;
 			}
+			else if(current.key<data) {
+				current = current.left;
+				isLeftChild = true;
+			}
 		}
-		Node successor = getsuccessor(current);
-		if(current == root) root = successor;
-		else if(isLeftChild) parent.left = successor;
-		else if(!isLeftChild) parent.right = successor;
-		successor.left = current.left;
-		return true;
+		if(current.left !=null && current.right!=null) {
+			Node successor = getSuccessor(current);
+			if(current == root) {
+				current = successor;
+			}
+			else if(isLeftChild) {
+				parent.left = successor;
+			}
+			else if(!isLeftChild) {
+				parent.right = successor;
+			}
+			successor.left = current.left;
+
+		}
+		else if(current.left == null && current.right == null) {
+			if(current == root) {
+				root = null;
+			}
+			else if(isLeftChild) {
+				parent.left = null;
+			}
+			else if(!isLeftChild) {
+				parent.right = null;
+			}
+		}
+		else if(current.left != null) {
+			if(current == root) {
+				root = current.left;
+			}
+			else if(isLeftChild) {
+				parent.left = current.left;
+			}
+			else if(!isLeftChild) {
+				parent.right = current.left;
+			}
+		}
+		else if(current.right != null) {
+			if(current == root) {
+				root = current.right;
+			}
+			else if(isLeftChild) {
+				parent.left = current.right;
+			}
+			else if(!isLeftChild) {
+				parent.right = current.right;
+			}
+		}
 	}
-	Node getsuccessor(Node deleteNode) {
+	Node getSuccessor(Node deleteNode) {
 		Node current = deleteNode.right;
 		Node successor = current;
-		Node successorparent = deleteNode;
-		
-		while(current!=null) {
-			successorparent = successor;
+		//Node parent = deleteNode;
+		Node successorParent = deleteNode;
+		while(current!=null){
 			successor = current;
+			successorParent = current;
 			current = current.left;
 		}
-		if(deleteNode.right != current) {
-			successorparent.left = successor.right;
+		if(deleteNode.right != successor) {
+			successorParent.left = successor.right;
 			successor.right = deleteNode.right;
 		}
-		
 		return successor;
 	}
 }
