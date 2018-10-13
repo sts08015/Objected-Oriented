@@ -30,8 +30,8 @@ class BST{
 	}
 	Node searchBST(Node root,int key) {
 		if(root == null) return null;
-		if(root.key > key) return searchBST(root.right,key);
-		else if(root.key < key) return searchBST(root.left,key);
+		if(root.key > key) return searchBST(root.left,key);
+		else if(root.key < key) return searchBST(root.right,key);
 		else return root;
 	}
 	void deleteBST(int data) {
@@ -114,6 +114,12 @@ class BST{
 		}
 		return successor;
 	}
+	public void display(Node root) {
+		if(root == null) return;
+		display(root.left);
+		System.out.print(" " + root.key);
+		display(root.right);
+	}
 }
 
 public class Main {
@@ -125,7 +131,8 @@ public class Main {
 		        for (int i = 0; i<x.length; i++) {
 		            bst.insertBST(bst.root, x[i]);
 		        }
+		        bst.display(bst.root);
 		        //System.out.println((bst.searchBST(bst.root, 14)).key);
-		        bst.deleteBST(10);
+		        //bst.deleteBST(10);
 	}
 }
