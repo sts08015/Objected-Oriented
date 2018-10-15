@@ -9,6 +9,9 @@ public class Test {
 		ts.st.change(st);
 		System.out.print(st.name + ", ");
 		System.out.print(new Test().st.name);
+		String a = "aaa";
+		String b = "aaa";
+		System.out.println(a==b);
 	}
 
 }

@@ -6,7 +6,7 @@ public class Shell {
 		int h = N/2;
 		while(h>0) {
 			for(int i = h;i<a.length;i+=h) {
-				for(int j = i;j>0;j-=h) {
+				for(int j = i;j>=h;j-=h) {
 					if(a[j]<a[j-h]) swap(a,j,j-h);
 					else break;
 				}
