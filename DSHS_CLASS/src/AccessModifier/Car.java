@@ -15,8 +15,8 @@ public class Car {
 	}
 
 	public static void main(String[] args) {
-		
 
+		System.out.println("dddd");
 	}
 // kr.hs.ts.test2.Car avantte = new kr.hs.ts.test2.Car();
 // 이런식으로 써줘야 함 
